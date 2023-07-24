@@ -1,4 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@font-face {
+  font-family: 'Carnivale';
+  src: url(/fonts/CarnevaleeFreakshow.ttf);
+}
+
+@font-face {
+  font-family: 'Quentin';
+  src: url(/fonts/QuentinCaps.ttf);
+}
+
+@font-face {
+  font-family: 'Sandcreek';
+  src: url(/fonts/Sancreek-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Hobby Horse';
+  src: url(/fonts/HobbyHorseNF.ttf);
+}
+
+@font-face {
+  font-family: 'Romantique';
+  src: url(/fonts/Romantiques.ttf);
+}
+
+@font-face {
+  font-family: 'Ewert';
+  src: url(/fonts/Ewert-Regular.ttf);
+}
+
 
 * {
   margin: 0;
@@ -6,235 +35,436 @@
   border: 0;
 }
 
-body {
-  max-width: 900px;
-  background-color: black;
-  font-family: 'Poppins', sans-serif;
-  color: #eee;
-  text-shadow: 0.15em 0.15em 0.1em rgba(0, 0, 0, 0.8);
-  align-self: center;
-  margin: auto;
+a,
+a:visited,
+a:hover {
+  text-decoration: none;
+  color: var(--darkcolor);
 }
 
-.page-slider {
-  height: 100dvh;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
-  /* hide scroll bar for IE and Edge*/
-  -ms-overflow-style: none;
-  /* hide scroll bar for Firefox*/
-  scrollbar-width: none;
-}
-
-/* hide scroll bar for chrome, safari, opera*/
-.page-slider::-webkit-scrollbar {
-  display: none;
-}
-
-.landing {
-  height: 100%;
-  display: grid;
-  grid-template-rows: 5dvh 90dvh 5dvh;
-  align-items: center;
-  justify-content: center;
-  scroll-snap-align: start;
-}
-
-.landing>img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.room-tile {
-  display: grid;
-  grid-template-rows: 10dvh 85dvh 5dvh;
-  align-items: center;
-  justify-content: center;
-  scroll-snap-align: start;
-}
-
-.room-title {
-  grid-column: 1;
-  grid-row: 1;
-  font-size: 5dvh;
-  font-weight: 800;
-  padding: 2dvh;
-}
-
-.room-image {
-  grid-column: 1;
-  grid-row: 1 / 4;
+img {
   object-fit: cover;
+  width: 100%;
   height: 100%;
-  width: 100%;
 }
 
-.slider {
-  grid-column: 1;
-  grid-row: 1 / 3;
-  height: 100%;
-  width: 100%;
-  display: inline;
-  align-items: center;
-  white-space: nowrap;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  /* hide scroll bar for IE and Edge*/
-  -ms-overflow-style: none;
-  /* hide scroll bar for Firefox*/
-  scrollbar-width: none;
+body {
+  background-color: #eee;
+  margin: auto;
+  max-width: 900px;
+  --lightcolor: rgba(253, 253, 253, 1);
+  --darkcolor: rgba(0, 0, 0, 1);
 }
 
-/* hide scroll bar for chrome, safari, opera*/
-.slider::-webkit-scrollbar {
-  display: none;
+.newspaper-page {
+  margin: 3dvw;
+  height: 90dvh;
+  box-shadow: 0dvw 0dvw 3dvw rgba(0, 0, 0, 0.75);
+  padding: 1dvw;
+  background-image: url(/images/4999936.jpg);
+  background-repeat: no-repeat;
+  background-size: fill;
+  background-position: center;
+  background-color: var(--lightcolor);
+  color: var(--darkcolor);
 }
 
-.slide {
-  display: inline-grid;
-  height: 90%;
-  width: 100%;
-  padding: 10dvh 0;
-  white-space: initial;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 9fr 1fr;
-  scroll-snap-align: start;
-}
-
-.features {
-  grid-column: 1 / -1;
-  grid-row: 1;
-  padding: 2dvh;
-  font-size: 3dvh;
-}
-
-.description {
-  grid-column: 1 / -1;
-  grid-row: 1;
-  padding: 2dvh;
-  font-size: 3dvh;
-}
-
-.availability-calendar {
-  grid-column: 1 / -1;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 2dvh;
-  color: rgb(40, 40, 40);
-  margin: 0 auto;
-  text-shadow: none;
-  font-size: auto;
+#newspaper-header {
+  font-family: 'Romantique';
+  border-top: var(--darkcolor) 0.5dvh solid;
+  border-bottom: var(--darkcolor) 0.5dvh solid;
+  height: 10dvh;
+  font-size: 5dvh;
   text-align: center;
-  align-items: center;
-  width: 75dvw;
 }
 
-th {
-  font-weight: bold;
-  vertical-align: middle;
-  padding: 0;
-  margin: 0;
+#newspaper-tagline {
+  font-family: 'Carnivale';
+  border-bottom: var(--darkcolor) 0.25dvh solid;
+  height: 3.5dvh;
+  font-size: 2.5dvh;
+  text-align: center;
 }
 
-td {
+.page-container {
+  height: 75dvh;
+}
+
+.page-layout {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  gap: 1dvw;
+  padding-top: 0.5dvh;
+  grid-template-rows: repeat(24, 1fr);
+  grid-template-columns: repeat(12, 1fr);
+  text-align: justify;
+}
+
+.page-layout * {
+  overflow: hidden;
+}
+
+#main-article-image-container {
+  grid-area: 1 / 4 / 9 / 10;
+}
+
+#lion-image {
+  mix-blend-mode: darken;
+}
+
+#main-article-headline {
+  grid-area: 9 / 3 / 16 / 11;
+  font-family: 'Carnivale';
+  font-size: 11dvh;
+  line-height: 0.75;
   font-weight: 400;
-  margin: 0x;
-  padding: 0;
-  height: 10%;
+  text-align: center;
+  align-self: center;
+  padding-bottom: 1.5dvh;
+  border-top: var(--darkcolor) 0.75dvw solid;
+  border-bottom: var(--darkcolor) 0.75dvw solid;
+  mix-blend-mode: normal;
 }
 
-.status[data-status="empty"] {
-  background-color: rgba(0, 128, 0, 0.8);
-  border-radius: 2dvh;
-  margin: 0px;
-  color: rgb(225, 225, 225);
-text-shadow: 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.8);
-}
-
-.status[data-status="empty"]:after {
-  content: "available";
-}
-
-.status[data-status="full"]:after {
-  content: "full";
-}
-
-.status[data-status="full"] {
-  background-color: rgba(128, 0, 0, 0.2);
-  border-radius: 2dvh;
-  margin: 0px;
-  color: rgba(60, 60, 60, 0.5);
-}
-
-.slide-nav-left,
-.slide-nav-centre,
-.slide-nav-right,
-.slide-navto-book {
-  padding: 0 0;
-}
-
-.slide>a,
-a:visited,
-a:hover {
-  color: #eee;
-  text-decoration: none;
-  font-size: 2.5dvh;
-}
-
-.slide-nav-left {
-  grid-column: 1;
-  grid-row: 2;
-  text-align: left;
-}
-
-.slide-nav-centre {
-  grid-column: 2;
-  grid-row: 2;
+#news-divider {
+  grid-area: 16 / 1 / 17 / 13;
+  font-family: 'Ewert';
+  font-size: 2dvh;
+  align-self: center;
   text-align: center;
 }
 
-.slide-nav-right {
-  grid-column: 3;
-  grid-row: 2;
-  text-align: right;
+#room-1-advert {
+  grid-area: 17 / 1 / 25 / 5;
+  display: grid;
+  grid-template-rows: 2fr 2fr 5fr;
 }
 
-.slide-navto-book {
-  grid-column: 2 / 4;
-  grid-row: 2;
-  text-align: right;
-}
-
-.room-nav {
-  grid-column: 1;
-  grid-row: 3;
-  font-size: 2.5dvh;
+#room-1-advert-header {
+  background-color: var(--darkcolor);
+  color: white;
+  font-family: fantasy;
+  font-size: 3.5dvh;
   text-align: center;
-  background-color: rgba(255,255,255,0.25);
+  mix-blend-mode: darken;
 }
 
-.room-nav>a,
-a:visited,
-a:hover {
-  color: #eee;
-  font-weight: 500;
-  text-decoration: none;
+#room-1-advert-blurb-top {
+  background-color: var(--darkcolor);
+  color: white;
+  font-family: fantasy;
+  font-size: 2dvh;
+  text-align: center;
+  mix-blend-mode: darken;
+}
+
+#room-1-advert-blurb-bottom {
+  background-color: var(--darkcolor);
+  color: white;
+  font-family: fantasy;
+  font-size: 5dvh;
+  text-align: center;
+  mix-blend-mode: darken;
+}
+
+#room-2-advert {
+  grid-area: 17 / 5 / 25 / 9;
+  border: var(--darkcolor) 1px solid;
+}
+
+#room-2-advert-header {
+  color: var(--darkcolor);
+  font-family: 'Sandcreek';
+  font-size: 2.4dvh;
+  text-align: center;
+}
+
+#room-2-advert-image {
+  mix-blend-mode: darken;
+}
+
+#room-3-advert {
+  grid-area: 17 / 9 / 25 / 13;
+  color: var(--darkcolor);
+  font-family: fantasy;
+  font-size: 3.5dvh;
+  text-align: center;
+  padding-top: 5%;
+  mix-blend-mode: darken;
+}
+
+.newspaper-page-header {
+  font-family: 'Romantique';
+  border-top: var(--darkcolor) 0.25dvh solid;
+  border-bottom: var(--darkcolor) 0.25dvh solid;
   font-size: 3dvh;
+  text-align: center;
+  align-self: center;
 }
 
-/* Gallery */
-
-.gallery {
-  animation: fade-in-out 5s;
+#r1-main-image-container{
+  grid-area: 1 / 1 / 12 / 6;
+  padding-top: 5dvh;
 }
 
-@keyframes fade-in-out {
-  0% {opacity: 0;}
-  25% {opacity: 1;}
-  75% {opacity: 1;}
-  100% {opacity: 0;}
+#quarantine-image{
+  mix-blend-mode: darken;
+}
+
+#r1-headline{
+  grid-area: 1 / 1 / 4 / 13;
+  font-family: 'Quentin';
+  font-size: 7.5dvh;
+}
+
+.room-story {
+  grid-area: 4 / 6 / 18 / 13;
+  font-family: 'Hobby Horse';
+  font-size: 2.2dvh;
+  padding: 0 15px;
+}
+
+.room-features{
+  grid-area: 13 / 2 / 24 / 9;
+  font-family: 'Hobby Horse';
+  font-size: 2.2dvh;
+  text-align: left;
+  line-height: 1.2;
+  padding: 0 5px;
+  list-style: square;
+}
+
+.other-news {
+  grid-area: 13 / 8 / 15 / 13;
+  font-family: 'Ewert';
+  font-size: 1.5dvh;
+  align-self: center;
+  padding-left: 5px;
+}
+
+
+
+.page-r2advert {
+  grid-area: 17 / 5 / 25 / 9;
+  border: var(--darkcolor) 1px solid;
+}
+
+.page-r2advert-headline {
+  color: var(--darkcolor);
+  font-family: 'Sandcreek';
+  font-size: 2.4dvh;
+  text-align: center;
+}
+
+.page-r2advert-image {
+  mix-blend-mode: darken;
+}
+
+.page-r3advert {
+  grid-area: 17 / 9 / 25 / 13;
+  color: var(--darkcolor);
+  font-family: fantasy;
+  font-size: 3.5dvh;
+  text-align: center;
+  padding-top: 5%;
+  mix-blend-mode: darken;
+}
+
+
+
+
+
+
+#rc1 {
+  font-size: 10px;
+  text-align: center;
+  grid-area: 1 / 1 / span 1 / span 1
+}
+
+#r2 {
+  font-family: 'Ewert';
+  font-size: 20px;
+  grid-area: 2 / 1 / span 1 / span 3
+}
+
+#r3 {
+  font-family: 'Romantique';
+  font-size: 20px;
+  grid-area: 3 / 1 / span 1 / span 3
+}
+
+#r4 {
+  font-family: 'Carnivale';
+  font-size: 20px;
+  grid-area: 4 / 1 / span 1 / span 3
+}
+
+#r5 {
+  font-family: 'Circus';
+  font-size: 20px;
+  grid-area: 5 / 1 / span 1 / span 3
+}
+
+#r6 {
+  font-family: 'Quentin';
+  font-size: 20px;
+  grid-area: 6 / 1 / span 1 / span 3
+}
+
+#r7 {
+  font-family: 'Sandcreek';
+  font-size: 20px;
+  grid-area: 7 / 1 / span 1 / span 3
+}
+
+#r8 {
+  font-size: 10px;
+  grid-area: 8 / 1 / span 1 / span 1
+}
+
+#r9 {
+  font-size: 10px;
+  grid-area: 9 / 1 / span 1 / span 1
+}
+
+#r10 {
+  font-size: 10px;
+  grid-area: 10 / 1 / span 1 / span 1
+}
+
+#r11 {
+  font-size: 10px;
+  grid-area: 11 / 1 / span 1 / span 1
+}
+
+#r12 {
+  font-size: 10px;
+  grid-area: 12 / 1 / span 1 / span 1
+}
+
+#r13 {
+  font-size: 10px;
+  grid-area: 13 / 1 / span 1 / span 1
+}
+
+#r14 {
+  font-size: 10px;
+  grid-area: 14 / 1 / span 1 / span 1
+}
+
+#r15 {
+  font-size: 10px;
+  grid-area: 15 / 1 / span 1 / span 1
+}
+
+#r16 {
+  font-size: 10px;
+  grid-area: 16 / 1 / span 1 / span 1
+}
+
+#r17 {
+  font-size: 10px;
+  grid-area: 17 / 1 / span 1 / span 1
+}
+
+#r18 {
+  font-size: 10px;
+  grid-area: 18 / 1 / span 1 / span 1
+}
+
+#r19 {
+  font-size: 10px;
+  grid-area: 19 / 1 / span 1 / span 1
+}
+
+#r20 {
+  font-size: 10px;
+  grid-area: 20 / 1 / span 1 / span 1
+}
+
+#r21 {
+  font-size: 10px;
+  grid-area: 21 / 1 / span 1 / span 1
+}
+
+#r22 {
+  font-size: 10px;
+  grid-area: 22 / 1 / span 1 / span 1
+}
+
+#r23 {
+  font-size: 10px;
+  grid-area: 23 / 1 / span 1 / span 1
+}
+
+#r24 {
+  font-size: 10px;
+  grid-area: 24 / 1 / span 1 / span 1
+}
+
+#c2 {
+  font-size: 10px;
+  text-align: center;
+  grid-area: 1 / 2 / span 1 / span 1
+}
+
+#c3 {
+  font-size: 10px;
+  text-align: center;
+  grid-area: 1 / 3 / span 1 / span 1
+}
+
+#c4 {
+  font-size: 10px;
+  text-align: center;
+  grid-area: 1 / 4 / span 1 / span 1
+}
+
+#c5 {
+  font-size: 10px;
+  text-align: center;
+  grid-area: 1 / 5 / span 1 / span 1
+}
+
+#c6 {
+  font-size: 10px;
+  text-align: center;
+  grid-area: 1 / 6 / span 1 / span 1
+}
+
+#c7 {
+  font-size: 10px;
+  text-align: center;
+  grid-area: 1 / 7 / span 1 / span 1
+}
+
+#c8 {
+  font-size: 10px;
+  text-align: center;
+  grid-area: 1 / 8 / span 1 / span 1
+}
+
+#c9 {
+  font-size: 10px;
+  text-align: center;
+  grid-area: 1 / 9 / span 1 / span 1
+}
+
+#c10 {
+  font-size: 10px;
+  text-align: center;
+  grid-area: 1 / 10 / span 1 / span 1
+}
+
+#c11 {
+  font-size: 10px;
+  text-align: center;
+  grid-area: 1 / 11 / span 1 / span 1
+}
+
+#c12 {
+  font-size: 10px;
+  text-align: center;
+  grid-area: 1 / 12 / span 1 / span 1
 }
