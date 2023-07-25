@@ -1,33 +1,33 @@
 @font-face {
   font-family: 'Carnivale';
-  src: url('fonts/carnevaleefreakshow-webfont.woff2') format('woff2'), /* Super Modern Browsers */
-       url('fonts/carnevaleefreakshow-webfont.woff') format('woff'), /* Pretty Modern Browsers */
-       url('fonts/carnevaleefreakshow-webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+  src: url(/fonts/carnevaleefreakshow-webfont.woff2) format('woff2'), /* Super Modern Browsers */
+       url(/fonts/carnevaleefreakshow-webfont.woff) format('woff'), /* Pretty Modern Browsers */
+       url(/fonts/carnevaleefreakshow-webfont.ttf)  format('truetype') /* Safari, Android, iOS */
 }
 
 @font-face {
   font-family: 'Quentin';
-  src: url(fonts/QuentinCaps.ttf);
+  src: url(/fonts/QuentinCaps.ttf);
 }
 
 @font-face {
   font-family: 'Sandcreek';
-  src: url(fonts/Sancreek-Regular.ttf);
+  src: url(/fonts/Sancreek-Regular.ttf);
 }
 
 @font-face {
   font-family: 'Hobby Horse';
-  src: url(fonts/HobbyHorseNF.ttf);
+  src: url(/fonts/HobbyHorseNF.ttf);
 }
 
 @font-face {
   font-family: 'Romantique';
-  src: url(fonts/Romantiques.ttf);
+  src: url(/fonts/Romantiques.ttf);
 }
 
 @font-face {
   font-family: 'Ewert';
-  src: url(fonts/Ewert-Regular.ttf);
+  src: url(/fonts/Ewert-Regular.ttf);
 }
 
 
@@ -63,7 +63,7 @@ body {
   height: 90dvh;
   box-shadow: 0dvw 0dvw 3dvw rgba(0, 0, 0, 0.75);
   padding: 1dvw;
-  background-image: url(images/4999936.jpg);
+  background-image: url(/images/4999936.jpg);
   background-repeat: no-repeat;
   background-size: fill;
   background-position: center;
