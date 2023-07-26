@@ -1,13 +1,23 @@
 @font-face {
   font-family: 'Carnivale';
-  src: url(../fonts/carnevaleefreakshow-webfont.woff2) format('woff2'), /* Super Modern Browsers */
-       url(../fonts/carnevaleefreakshow-webfont.woff) format('woff'), /* Pretty Modern Browsers */
-       url(../fonts/carnevaleefreakshow-webfont.ttf)  format('truetype') /* Safari, Android, iOS */
+  src: url(../fonts/carnevaleefreakshow-webfont.woff2) format('woff2'),
+       url(../fonts/carnevaleefreakshow-webfont.woff) format('woff'),
+    url(../fonts/carnevaleefreakshow-webfont.ttf) format('truetype')
 }
 
 @font-face {
-  font-family: 'Quentin';
-  src: url(../fonts/QuentinCaps.ttf);
+  font-family: 'Sticket';
+  src: url(../fonts/ickyticketmono-webfont.woff2)format('woff2'),
+       url(../fonts/ickyticketmono-webfont.woff) format('woff'),
+       url(../fonts/ickyticketmono-webfont.ttf) format('truetype')
+}
+
+
+@font-face {
+  font-family: 'Quarantine';
+  src: url(../fonts/leavenofingerprints-webfont.woff2)format('woff2'),
+       url(../fonts/leavenofingerprints-webfont.woff) format('woff'),
+       url(../fonts/leavenofingerprints-webfont.ttf) format('truetype')
 }
 
 @font-face {
@@ -30,120 +40,171 @@
   src: url(../fonts/Ewert-Regular.ttf);
 }
 
+:root{
+  --lightcolor: rgba(253, 253, 253, 1);
+  --darkcolor: rgba(42, 42, 42, 1);
+}
 
+/* set layout defaults */
 * {
   margin: 0;
   padding: 0;
   border: 0;
 }
 
-a,
-a:visited,
-a:hover {
-  text-decoration: none;
-  color: var(--darkcolor);
-}
-
+/* Set image defaults */
 img {
   object-fit: cover;
   width: 100%;
   height: 100%;
 }
 
-body {
-  background-color: #eee;
-  margin: auto;
-  max-width: 900px;
-  --lightcolor: rgba(253, 253, 253, 1);
-  --darkcolor: rgba(0, 0, 0, 1);
+/* class to invert images */
+.inverted {
+  -webkit-filter: invert(100%); /* safari 6.0 - 9.0 */
+  filter: invert(100%);
 }
 
-.newspaper-page {
-  margin: 3dvw;
-  height: 90dvh;
-  box-shadow: 0dvw 0dvw 3dvw rgba(0, 0, 0, 0.75);
-  padding: 1dvw;
-  background-image: url(../images/4999936.jpg);
+body {
+  background-color: #aaa;
+  margin: 0 auto;
+}
+
+/* Setting overflow-x to hidden prevents */
+/* x-scrolling just because of y-scrollbar */
+
+.corkboard {
+  box-shadow: 0 0 3dvh rgba(0, 0, 0, 0.75);
+  background-image: url(../images/cork-texture.jpg);
+  background-repeat: repeat;
+  background-size:none;
+  background-position: center;
+  margin: auto;
+  width: 100%;
+  max-width: 900px;
+  padding-top: 3dvh;
+  overflow-x: hidden;
+}
+
+/* priority for responsive sizing: aspect ratio, max height, width, max-width */
+.poster {
+  aspect-ratio: 9/16;
+  margin: 0 auto 3dvh;
+  max-height:90dvh;
+  width:auto;
+  max-width: 95dvw;
+  box-shadow: 0 0 0.75dvh rgba(0, 0, 0, 0.9);
+  background-image: url(../images/poster-bg-1.jpg);
   background-repeat: no-repeat;
-  background-size: fill;
+  background-size: cover;
   background-position: center;
   background-color: var(--lightcolor);
   color: var(--darkcolor);
 }
 
-#newspaper-header {
-  font-family: 'Romantique';
-  border-top: var(--darkcolor) 0.5dvh solid;
-  border-bottom: var(--darkcolor) 0.5dvh solid;
-  height: 10dvh;
-  font-size: 5dvh;
-  text-align: center;
-}
-
-#newspaper-tagline {
-  font-family: 'Carnivale';
-  border-bottom: var(--darkcolor) 0.25dvh solid;
-  height: 3.5dvh;
-  font-size: 2.5dvh;
-  text-align: center;
-}
-
-.page-container {
-  height: 75dvh;
-}
-
-.page-layout {
-  display: grid;
-  height: 100%;
+.poster-layout-container {
+  /* background-color: rgba(0,255,255,0.25); */
   width: 100%;
-  gap: 1dvw;
-  padding-top: 0.5dvh;
-  grid-template-rows: repeat(24, 1fr);
-  grid-template-columns: repeat(12, 1fr);
-  text-align: justify;
+  height: 100%;
 }
 
-.page-layout * {
+.poster-layout-grid {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: repeat(26, 1fr);
+  grid-template-columns: repeat(14, 1fr);
+  gap: 1dvh;
+}
+
+.poster-layout-grid * {
   overflow: hidden;
+  text-overflow: hidden;
 }
 
-#main-article-image-container {
-  grid-area: 1 / 4 / 9 / 10;
+.poster-image-container-border {
+  grid-area: 1 / 1 / span all / span all;
 }
 
-#lion-image {
-  mix-blend-mode: darken;
+.img-poster-border {
+  object-fit: fill;
+  mix-blend-mode: multiply;
 }
 
-#main-article-headline {
-  grid-area: 9 / 3 / 16 / 11;
+#front-header {
+  grid-area: 2 / 2 / 4 / 14;
+  font-family: 'Romantique';
+  font-size: 3dvh;
+  text-align: center;
+  align-self: self-start;
+}
+
+#front-tagline {
+  grid-area: 3 / 2 / 4 / 14;
   font-family: 'Carnivale';
+  border-top: var(--darkcolor) thin solid;
+  border-bottom: var(--darkcolor) thin solid;
+  font-size: 2dvh;
+  text-align: center;
+  align-self: center;
+}
+
+#front-lion-image-container {
+  grid-area: 4 / 5 / 11 / 11;
+}
+
+#front-lion-image {
+  mix-blend-mode: darken;
+  object-fit: contain;
+}
+
+#front-lion-headline {
+  grid-area: 11 / 4 / 17 / 12;
   font-size: 11dvh;
+  font-family: 'Carnivale';
+  color: black;
+  overflow: unset;
   line-height: 0.75;
   font-weight: 400;
   text-align: center;
-  align-self: center;
-  padding-bottom: 1.5dvh;
-  border-top: var(--darkcolor) 0.75dvw solid;
-  border-bottom: var(--darkcolor) 0.75dvw solid;
-  mix-blend-mode: normal;
+  padding-bottom: 1dvh;
+  border-top: var(--darkcolor) medium solid;
+  border-bottom: var(--darkcolor) medium solid;
 }
 
-#news-divider {
-  grid-area: 16 / 1 / 17 / 13;
+#front-compass-image-container{
+  grid-area: 4 / 11 / 8 / 14;
+}
+
+#front-compass-image{
+  object-fit:contain;
+  mix-blend-mode: multiply;
+  align-self: center ;
+}
+
+#how-to-find{
+  grid-area: 8 / 11 / 9 / 14;
   font-family: 'Ewert';
-  font-size: 2dvh;
+  
+}
+
+
+#front-divider {
+  grid-area: 19 / 2 / 20 / 14;
+  font-family: 'Ewert';
+  font-size: 1.8dvh;
+  font-weight: bold ;
   align-self: center;
   text-align: center;
 }
 
-#room-1-advert {
-  grid-area: 17 / 1 / 25 / 5;
+#front-r1advert {
+  grid-area: 20 / 2 / 26 / 6;
   display: grid;
   grid-template-rows: 2fr 2fr 5fr;
 }
 
-#room-1-advert-header {
+#front-r1advert-header {
   background-color: var(--darkcolor);
   color: white;
   font-family: fantasy;
@@ -152,7 +213,7 @@ body {
   mix-blend-mode: darken;
 }
 
-#room-1-advert-blurb-top {
+#front-r1advert-blurb-top {
   background-color: var(--darkcolor);
   color: white;
   font-family: fantasy;
@@ -161,7 +222,7 @@ body {
   mix-blend-mode: darken;
 }
 
-#room-1-advert-blurb-bottom {
+#front-r1advert-blurb-bottom {
   background-color: var(--darkcolor);
   color: white;
   font-family: fantasy;
@@ -170,24 +231,24 @@ body {
   mix-blend-mode: darken;
 }
 
-#room-2-advert {
-  grid-area: 17 / 5 / 25 / 9;
+#front-r2advert {
+  grid-area: 20 / 6 / 26 / 10;
   border: var(--darkcolor) 1px solid;
 }
 
-#room-2-advert-header {
+#front-r2advert-header {
   color: var(--darkcolor);
   font-family: 'Sandcreek';
   font-size: 2.4dvh;
   text-align: center;
 }
 
-#room-2-advert-image {
+#front-r2advert-image {
   mix-blend-mode: darken;
 }
 
-#room-3-advert {
-  grid-area: 17 / 9 / 25 / 13;
+#front-r3advert {
+  grid-area: 20 / 10 / 26 / 14;
   color: var(--darkcolor);
   font-family: fantasy;
   font-size: 3.5dvh;
@@ -196,75 +257,139 @@ body {
   mix-blend-mode: darken;
 }
 
-.newspaper-page-header {
+.page-header {
+  grid-area: 2 / 2 / 3 / 14 ;
   font-family: 'Romantique';
-  border-top: var(--darkcolor) 0.25dvh solid;
-  border-bottom: var(--darkcolor) 0.25dvh solid;
-  font-size: 3dvh;
+  border-bottom: var(--darkcolor) thin solid;
+  font-size: 2dvh;
   text-align: center;
-  align-self: center;
+  /* align-self: center; */
 }
 
-#r1-main-image-container{
-  grid-area: 1 / 1 / 12 / 6;
-  padding-top: 5dvh;
+.page-headline {
+  grid-area: 2 / 2 / 6 / 14;
 }
 
-#quarantine-image{
-  mix-blend-mode: darken;
+.backstory {
+  font-family: 'Sticket';
+  font-weight: 600;
+  font-size: 2dvh;
 }
 
 #r1-headline{
-  grid-area: 1 / 1 / 4 / 13;
-  font-family: 'Quentin';
-  font-size: 7.5dvh;
-}
-
-.room-story {
-  grid-area: 4 / 6 / 18 / 13;
-  font-family: 'Hobby Horse';
-  font-size: 2.2dvh;
-  padding: 0 15px;
-}
-
-.room-features{
-  grid-area: 13 / 2 / 24 / 9;
-  font-family: 'Hobby Horse';
-  font-size: 2.2dvh;
-  text-align: left;
-  line-height: 1.2;
-  padding: 0 5px;
-  list-style: square;
-}
-
-.other-news {
-  grid-area: 13 / 8 / 15 / 13;
-  font-family: 'Ewert';
-  font-size: 1.5dvh;
+  font-family: 'Quarantine';
+  font-size: 10dvh;
   align-self: center;
-  padding-left: 5px;
+  text-align: center;
+}
+
+#r1-image-container-scientist {
+  grid-area: 3 / 1 / 14 / 9;
+}
+
+#image-scientist {
+  mix-blend-mode: multiply;
+  object-fit:contain;
+  padding-top: 3%;
+  padding-left: 5%;
+  }
+
+
+#r1-backstory {
+  grid-area: 5 / 8 / 14 / 15;
+  padding: 6%;
+}
+
+.room-features-background{
+  grid-area: 15 / 8 / 24 / 14;
+  z-index: 0;
+  mix-blend-mode: darken;
+  background-color: var(--darkcolor);
+}
+
+.room-features {
+  grid-area: 18 / 2 / 24 / 14;
+  z-index: 1;
+  display: grid;
+  gap: 5px;
+  padding-left: 2px;
+  grid-template-columns: 1fr 1fr;
+  font-family: 'Hobby Horse';
+  font-size: 2dvh;
+  text-align: left;
+  color: white;
+}
+
+#r2-headline{
+  grid-area: 3 / 2 / 7 / 14;
+  font-family: 'Sandcreek';
+  font-size: 3dvh;
+  text-align: left;
+  /* align-self: center; */
+}
+
+#r2-image-container-thor {
+  grid-area: 4 / 2 / 15 / 9;
+}
+
+#image-thor {
+  mix-blend-mode: darken;
+  /* object-fit: scale-down; */
 }
 
 
+#r2-backstory {
+  grid-area: 15 / 2 / 24 / 14;
+  font-family: 'Hobby Horse';
+  font-size: 2dvh;
+}
 
-.page-r2advert {
-  grid-area: 17 / 5 / 25 / 9;
+.page-other-news {
+  grid-area: 24 / 2 / 26 / 5;
+  font-family: 'Ewert';
+  font-size: 1.4dvh;
+  font-weight: bold;
+}
+
+.page-ra-advert {
+  grid-area: 24 / 5 / 26 / 9;
   border: var(--darkcolor) 1px solid;
 }
 
-.page-r2advert-headline {
+.page-ra-advert-headline {
   color: var(--darkcolor);
   font-family: 'Sandcreek';
   font-size: 2.4dvh;
   text-align: center;
 }
 
-.page-r2advert-image {
+.page-ra-advert-image {
   mix-blend-mode: darken;
 }
 
-.page-r3advert {
-  grid-area: 17 / 9 / 25 / 13;
+.page-rb-advert {
+  grid-area: 24 / 9 / 26 / 14;
+}
+
+#page-r1-advert {
+  color: var(--darkcolor);
+  font-family: fantasy;
+  font-size: 3.5dvh;
+  text-align: center;
+  padding-top: 5%;
+  mix-blend-mode: darken;
+}
+
+#page-r2-advert {
+  color: var(--darkcolor);
+  font-family: fantasy;
+  font-size: 3.5dvh;
+  text-align: center;
+  padding-top: 5%;
+  mix-blend-mode: darken;
+}
+
+#page-r3-advert {
   color: var(--darkcolor);
   font-family: fantasy;
   font-size: 3.5dvh;
@@ -274,199 +399,42 @@ body {
 }
 
 
-
-
-
-
-#rc1 {
-  font-size: 10px;
-  text-align: center;
-  grid-area: 1 / 1 / span 1 / span 1
-}
-
-#r2 {
-  font-family: 'Ewert';
-  font-size: 20px;
-  grid-area: 2 / 1 / span 1 / span 3
-}
-
-#r3 {
-  font-family: 'Romantique';
-  font-size: 20px;
-  grid-area: 3 / 1 / span 1 / span 3
-}
-
-#r4 {
-  font-family: 'Carnivale';
-  font-size: 20px;
-  grid-area: 4 / 1 / span 1 / span 3
-}
-
-#r5 {
-  font-family: 'Circus';
-  font-size: 20px;
-  grid-area: 5 / 1 / span 1 / span 3
-}
-
-#r6 {
-  font-family: 'Quentin';
-  font-size: 20px;
-  grid-area: 6 / 1 / span 1 / span 3
-}
-
-#r7 {
-  font-family: 'Sandcreek';
-  font-size: 20px;
-  grid-area: 7 / 1 / span 1 / span 3
-}
-
-#r8 {
-  font-size: 10px;
-  grid-area: 8 / 1 / span 1 / span 1
-}
-
-#r9 {
-  font-size: 10px;
-  grid-area: 9 / 1 / span 1 / span 1
-}
-
-#r10 {
-  font-size: 10px;
-  grid-area: 10 / 1 / span 1 / span 1
-}
-
-#r11 {
-  font-size: 10px;
-  grid-area: 11 / 1 / span 1 / span 1
-}
-
-#r12 {
-  font-size: 10px;
-  grid-area: 12 / 1 / span 1 / span 1
-}
-
-#r13 {
-  font-size: 10px;
-  grid-area: 13 / 1 / span 1 / span 1
-}
-
-#r14 {
-  font-size: 10px;
-  grid-area: 14 / 1 / span 1 / span 1
-}
-
-#r15 {
-  font-size: 10px;
-  grid-area: 15 / 1 / span 1 / span 1
-}
-
-#r16 {
-  font-size: 10px;
-  grid-area: 16 / 1 / span 1 / span 1
-}
-
-#r17 {
-  font-size: 10px;
-  grid-area: 17 / 1 / span 1 / span 1
-}
-
-#r18 {
-  font-size: 10px;
-  grid-area: 18 / 1 / span 1 / span 1
-}
-
-#r19 {
-  font-size: 10px;
-  grid-area: 19 / 1 / span 1 / span 1
-}
-
-#r20 {
-  font-size: 10px;
-  grid-area: 20 / 1 / span 1 / span 1
-}
-
-#r21 {
-  font-size: 10px;
-  grid-area: 21 / 1 / span 1 / span 1
-}
-
-#r22 {
-  font-size: 10px;
-  grid-area: 22 / 1 / span 1 / span 1
-}
-
-#r23 {
-  font-size: 10px;
-  grid-area: 23 / 1 / span 1 / span 1
-}
-
-#r24 {
-  font-size: 10px;
-  grid-area: 24 / 1 / span 1 / span 1
-}
-
-#c2 {
-  font-size: 10px;
-  text-align: center;
-  grid-area: 1 / 2 / span 1 / span 1
-}
-
-#c3 {
-  font-size: 10px;
-  text-align: center;
-  grid-area: 1 / 3 / span 1 / span 1
-}
-
-#c4 {
-  font-size: 10px;
-  text-align: center;
-  grid-area: 1 / 4 / span 1 / span 1
-}
-
-#c5 {
-  font-size: 10px;
-  text-align: center;
-  grid-area: 1 / 5 / span 1 / span 1
-}
-
-#c6 {
-  font-size: 10px;
-  text-align: center;
-  grid-area: 1 / 6 / span 1 / span 1
-}
-
-#c7 {
-  font-size: 10px;
-  text-align: center;
-  grid-area: 1 / 7 / span 1 / span 1
-}
-
-#c8 {
-  font-size: 10px;
-  text-align: center;
-  grid-area: 1 / 8 / span 1 / span 1
-}
-
-#c9 {
-  font-size: 10px;
-  text-align: center;
-  grid-area: 1 / 9 / span 1 / span 1
-}
-
-#c10 {
-  font-size: 10px;
-  text-align: center;
-  grid-area: 1 / 10 / span 1 / span 1
-}
-
-#c11 {
-  font-size: 10px;
-  text-align: center;
-  grid-area: 1 / 11 / span 1 / span 1
-}
-
-#c12 {
-  font-size: 10px;
-  text-align: center;
-  grid-area: 1 / 12 / span 1 / span 1
-}
+#cr { grid-area: 1 / 1 / 2 / 2; background-color: magenta;}
+#r2 { grid-area: 2 / 1 / 3 / 2; background-color: magenta;} 
+#r3 { grid-area: 3 / 1 / 4 / 2; background-color: magenta;}
+#r4 { grid-area: 4 / 1 / 5 / 2; background-color: magenta;}
+#r5 { grid-area: 5 / 1 / 6 / 2; background-color: magenta;}
+#r6 { grid-area: 6 / 1 / 7 / 2; background-color: magenta;}
+#r7 { grid-area: 7 / 1 / 8 / 2; background-color: magenta;}
+#r8 { grid-area: 8 / 1 / 9 / 2; background-color: magenta;}
+#r9 { grid-area: 9 / 1 / 10 / 2; background-color: magenta;}
+#r10 { grid-area: 10 / 1 / 11 / 2; background-color: magenta;}
+#r11 { grid-area: 11 / 1 / 12 / 2; background-color: magenta;}
+#r12 { grid-area: 12 / 1 / 13 / 2; background-color: magenta;}
+#r13 { grid-area: 13 / 1 / 14 / 2; background-color: magenta;}
+#r14 { grid-area: 14 / 1 / 15 / 2; background-color: magenta;}
+#r15 { grid-area: 15 / 1 / 16 / 2; background-color: magenta;}
+#r16 { grid-area: 16 / 1 / 17 / 2; background-color: magenta;}
+#r17 { grid-area: 17 / 1 / 18 / 2; background-color: magenta;}
+#r18 { grid-area: 18 / 1 / 19 / 2; background-color: magenta;}
+#r19 { grid-area: 19 / 1 / 20 / 2; background-color: magenta;}
+#r20 { grid-area: 20 / 1 / 21 / 2; background-color: magenta;}
+#r21 { grid-area: 21 / 1 / 22 / 2; background-color: magenta;}
+#r22 { grid-area: 22 / 1 / 23 / 2; background-color: magenta;}
+#r23 { grid-area: 23 / 1 / 24 / 2; background-color: magenta;}
+#r24 { grid-area: 24 / 1 / 25 / 2; background-color: magenta;}
+#r25 { grid-area: 25 / 1 / 26 / 2; background-color: magenta;}
+#r26 { grid-area: 26 / 1 / 27 / 2; background-color: magenta;}
+#c2 { grid-area: 1 / 2 / 2 / 3; background-color: magenta;}
+#c3 { grid-area: 1 / 3 / 2 / 4; background-color: magenta;}
+#c4 { grid-area: 1 / 4 / 2 / 5; background-color: magenta;}
+#c5 { grid-area: 1 / 5 / 2 / 6; background-color: magenta;}
+#c6 { grid-area: 1 / 6 / 2 / 7; background-color: magenta;}
+#c7 { grid-area: 1 / 7 / 2 / 8; background-color: magenta;}
+#c8 { grid-area: 1 / 8 / 2 / 9; background-color: magenta;}
+#c9 { grid-area: 1 / 9 / 2 / 10; background-color: magenta;}
+#c10 { grid-area: 1 / 10 / 2 / 11; background-color: magenta;}
+#c11 { grid-area: 1 / 11 / 2 / 12; background-color: magenta;}
+#c12 { grid-area: 1 / 12 / 2 / 13; background-color: magenta;}
+#c13 { grid-area: 1 / 13 / 2 / 14; background-color: magenta;}
+#c14 { grid-area: 1 / 14 / 2 / 15; background-color: magenta;}
