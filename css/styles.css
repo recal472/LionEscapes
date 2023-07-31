@@ -12,7 +12,6 @@
        url(../fonts/ickyticketmono-webfont.ttf) format('truetype')
 }
 
-
 @font-face {
   font-family: 'Quarantine';
   src: url(../fonts/leavenofingerprints-webfont.woff2)format('woff2'),
@@ -26,18 +25,8 @@
 }
 
 @font-face {
-  font-family: 'Hobby Horse';
-  src: url(../fonts/HobbyHorseNF.ttf);
-}
-
-@font-face {
   font-family: 'Romantique';
   src: url(../fonts/Romantiques.ttf);
-}
-
-@font-face {
-  font-family: 'Ewert';
-  src: url(../fonts/Ewert-Regular.ttf);
 }
 
 :root{
@@ -59,15 +48,18 @@ img {
   height: 100%;
 }
 
-/* class to invert images */
-.inverted {
-  -webkit-filter: invert(100%); /* safari 6.0 - 9.0 */
-  filter: invert(100%);
+/* Set links to normal text */
+a, a:hover, a:visited {
+  text-decoration: inherit;
+  color: inherit;
 }
+
 
 body {
   background-color: #aaa;
   margin: 0 auto;
+  font-family: 'Sticket';
+  font-size: 2dvh;
 }
 
 /* Setting overflow-x to hidden prevents */
@@ -126,6 +118,26 @@ body {
   grid-area: 1 / 1 / span all / span all;
 }
 
+.pin-top-left{
+  grid-area: 1 / 1 / 1 / 1;
+  z-index: 1;
+}
+
+.pin-top-right{
+  grid-area: 1 / 14 / 1 / 15;
+  z-index: 1;
+}
+
+.pin-bottom-left{
+  grid-area: 26 / 1 / 27 / 1;
+  z-index: 1;
+}
+
+.pin-bottom-right{
+  grid-area: 26 / 14 / 27 / 15;
+  z-index: 1;
+}
+
 .img-poster-border {
   object-fit: fill;
   mix-blend-mode: multiply;
@@ -135,6 +147,7 @@ body {
   grid-area: 2 / 2 / 4 / 14;
   font-family: 'Romantique';
   font-size: 3dvh;
+  font-weight: normal;
   text-align: center;
   align-self: self-start;
 }
@@ -142,9 +155,9 @@ body {
 #front-tagline {
   grid-area: 3 / 2 / 4 / 14;
   font-family: 'Carnivale';
+  font-size: 2dvh;
   border-top: var(--darkcolor) thin solid;
   border-bottom: var(--darkcolor) thin solid;
-  font-size: 2dvh;
   text-align: center;
   align-self: center;
 }
@@ -172,28 +185,34 @@ body {
   border-bottom: var(--darkcolor) medium solid;
 }
 
-#front-compass-image-container{
-  grid-area: 4 / 11 / 8 / 14;
+#front-how-to-find-container{
+  grid-area: 9 / 11 / 13 / 14;
+  rotate: -30deg;
+  background-color: white;
+  background-image: url(../images/brown-paper-texture.JPG);
+  box-shadow: -1px 1px 0.5dvh rgba(0, 0, 0, 0.9);
+  text-align: center;
+  /* border: 1px rgb(155, 127, 91) solid; */
 }
 
 #front-compass-image{
   object-fit:contain;
+  width: 75%;
+  height: 53%;
+  margin: 0 auto;
   mix-blend-mode: multiply;
-  align-self: center ;
 }
 
 #how-to-find{
   grid-area: 8 / 11 / 9 / 14;
-  font-family: 'Ewert';
-  
+  text-align: center;
+  font-size: 1.5dvh;
 }
 
 
 #front-divider {
   grid-area: 19 / 2 / 20 / 14;
-  font-family: 'Ewert';
-  font-size: 1.8dvh;
-  font-weight: bold ;
+  font-size: 2dvh;
   align-self: center;
   text-align: center;
 }
@@ -262,29 +281,50 @@ body {
   font-family: 'Romantique';
   border-bottom: var(--darkcolor) thin solid;
   font-size: 2dvh;
+  font-weight: normal;
   text-align: center;
   /* align-self: center; */
 }
 
 .page-headline {
-  grid-area: 2 / 2 / 6 / 14;
+  grid-area: 3 / 2 / 6 / 14;
 }
 
-.backstory {
+.backstory, .description {
+  font-weight: bold;
+}
+
+.room-features {
+  grid-area: 18 / 1 / 24 / 15;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/feature-bg-2.jpg);
+  background-size: cover;
+  color: white;
+  mix-blend-mode:darken;
+  vertical-align: center;
+}
+
+.room-feature-list {
   font-family: 'Sticket';
-  font-weight: 600;
-  font-size: 2dvh;
+  font-size: 2.1dvh;
+  font-weight: 500;
+  padding-top: 2.5%;
+  padding-left: 10%;
+  font-weight: bold;
+
 }
 
 #r1-headline{
   font-family: 'Quarantine';
+  font-weight: normal;
   font-size: 10dvh;
   align-self: center;
   text-align: center;
 }
 
 #r1-image-container-scientist {
-  grid-area: 3 / 1 / 14 / 9;
+  grid-area: 4 / 6 / 15 / 15;
 }
 
 #image-scientist {
@@ -294,42 +334,23 @@ body {
   padding-left: 5%;
   }
 
-
 #r1-backstory {
-  grid-area: 5 / 8 / 14 / 15;
-  padding: 6%;
+  grid-area: 6 / 2 / 16 / 8;
 }
 
-.room-features-background{
-  grid-area: 15 / 8 / 24 / 14;
-  z-index: 0;
-  mix-blend-mode: darken;
-  background-color: var(--darkcolor);
-}
-
-.room-features {
-  grid-area: 18 / 2 / 24 / 14;
-  z-index: 1;
-  display: grid;
-  gap: 5px;
-  padding-left: 2px;
-  grid-template-columns: 1fr 1fr;
-  font-family: 'Hobby Horse';
-  font-size: 2dvh;
-  text-align: left;
-  color: white;
+#r1-description {
+  grid-area: 14 / 2 / 18 / 14;
 }
 
 #r2-headline{
-  grid-area: 3 / 2 / 7 / 14;
   font-family: 'Sandcreek';
-  font-size: 3dvh;
-  text-align: left;
+  font-size: 3.5dvh;
+  text-align: center;
   /* align-self: center; */
 }
 
 #r2-image-container-thor {
-  grid-area: 4 / 2 / 15 / 9;
+  grid-area: 5 / 2 / 14 / 8;
 }
 
 #image-thor {
@@ -339,15 +360,12 @@ body {
 
 
 #r2-backstory {
-  grid-area: 15 / 2 / 24 / 14;
-  font-family: 'Hobby Horse';
-  font-size: 2dvh;
+  grid-area: 5 / 8 / 14 / 14;
 }
 
 .page-other-news {
   grid-area: 24 / 2 / 26 / 5;
-  font-family: 'Ewert';
-  font-size: 1.4dvh;
+  font-size: 2dvh;
   font-weight: bold;
 }
 
@@ -398,7 +416,7 @@ body {
   mix-blend-mode: darken;
 }
 
-
+/* 
 #cr { grid-area: 1 / 1 / 2 / 2; background-color: magenta;}
 #r2 { grid-area: 2 / 1 / 3 / 2; background-color: magenta;} 
 #r3 { grid-area: 3 / 1 / 4 / 2; background-color: magenta;}
@@ -437,4 +455,4 @@ body {
 #c11 { grid-area: 1 / 11 / 2 / 12; background-color: magenta;}
 #c12 { grid-area: 1 / 12 / 2 / 13; background-color: magenta;}
 #c13 { grid-area: 1 / 13 / 2 / 14; background-color: magenta;}
-#c14 { grid-area: 1 / 14 / 2 / 15; background-color: magenta;}
+#c14 { grid-area: 1 / 14 / 2 / 15; background-color: magenta;} */
