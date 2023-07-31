@@ -416,6 +416,10 @@ body {
   mix-blend-mode: darken;
 }
 
+#directions-map-container {
+  grid-area: 4 / 3 / 13 / 12;
+}
+
 /* 
 #cr { grid-area: 1 / 1 / 2 / 2; background-color: magenta;}
 #r2 { grid-area: 2 / 1 / 3 / 2; background-color: magenta;} 
